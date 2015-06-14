@@ -1,0 +1,31 @@
+﻿<Window x:Class="NodeSchool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="NodeSchool" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <Grid Grid.Column="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0">Welcome To NodeSchool</TextBlock>
+            <TextBox Grid.Row="1" x:Name="Code" Background="#FF2E2E2E" Foreground="#FFD8D8D8" Text="Type code here..." FontFamily="Consolas" GotFocus="Code_GotFocus" LostFocus="Code_LostFocus" AcceptsReturn="True" AcceptsTab="True" TextWrapping="Wrap"/>
+            <Button x:Name="RunButton" Grid.Row="2" Content="Run" VerticalAlignment="Bottom" Click="RunButton_Click"/>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="ConsoleOutput" Grid.Row="0" Background="#000000" Foreground="#FFFFFF" FontFamily="Courier New"></TextBlock>
+            <Button x:Name="ClearButton" Grid.Row="1" Content="Clear Output" Click="ClearButton_Click"></Button>
+        </Grid>
+    </Grid>
+
+</Window>
