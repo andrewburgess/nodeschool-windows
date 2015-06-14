@@ -34,6 +34,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ConsoleControl.WPF">
+      <HintPath>..\packages\ConsoleControl.WPF.1.1.0.0\lib\net40\ConsoleControl.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="ConsoleControlAPI">
+      <HintPath>..\packages\ConsoleControl.WPF.1.1.0.0\lib\net40\ConsoleControlAPI.dll</HintPath>
+    </Reference>
     <Reference Include="EdgeJs">
       <HintPath>..\packages\Edge.js.0.10.0\lib\EdgeJs.dll</HintPath>
     </Reference>

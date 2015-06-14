@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,9 +44,11 @@ namespace NodeSchool
 
         private void RunButton_Click(object sender, RoutedEventArgs e)
         {
-            ConsoleOutput.Text += "\n> Executing code...\n";
-            var script = ComposeScript(Code.Text);
-            Task.Run(() => Run(script)).Wait();
+            //ConsoleOutput.Text += "\n> Executing code...\n";
+            //var script = ComposeScript(Code.Text);
+            //Task.Run(() => Run(script)).Wait();
+            File.WriteAllText("_temp.js", Code.Text);
+            ConsoleOutput.StartProcess("node", "_temp.js");
         }
 
         private async void Run(string script)
@@ -53,7 +56,7 @@ namespace NodeSchool
             var consoleLog = (Func<object, Task<object>>)(async (message) =>
             {
                 var str = Encoding.UTF8.GetString((byte[])message);
-                ConsoleOutput.Dispatcher.BeginInvoke((Action) (() => ConsoleOutput.Text += str));
+                //ConsoleOutput.Dispatcher.BeginInvoke((Action) (() => ConsoleOutput.Text += str));
                 return null;
             });
 
@@ -63,7 +66,7 @@ namespace NodeSchool
                 log = consoleLog
             });
 
-            ConsoleOutput.Dispatcher.BeginInvoke((Action) (() => ConsoleOutput.Text += "\n"));
+            //ConsoleOutput.Dispatcher.BeginInvoke((Action) (() => ConsoleOutput.Text += "\n"));
         }
 
         private string ComposeScript(string code)
@@ -101,7 +104,7 @@ namespace NodeSchool
 
         private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
-            ConsoleOutput.Text = "";
+            //ConsoleOutput.Text = "";
         }
     }
 }
